@@ -1,32 +1,28 @@
-# Prerequisites
-*.d
+#include <iostream>
+using namespace std;
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
+void infrac(float n, float& intp, float& fracp);
 
-# Precompiled Headers
-*.gch
-*.pch
+int main()
+{
+	
+	float number, intpart, fracpart;
+	
+	cout << "\nEnter a real number \n";
+	cin >> number;
+	do
+	{	
+		infrac(number, intpart, fracpart);
+		cout << "Integer part is " << intpart
+		<< ", fraction part is " << fracpart;
+	}while(number != 0.0);
+	
+	return 0;
+}
 
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
+void intfrac (float n, float& intp, float& fracp)
+{
+	long temp = static_cast<long>(n);
+	intp = static_cast<float>(temp);
+	fracp = n - intp;
+}
